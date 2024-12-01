@@ -1,0 +1,27 @@
+$color-1-dark: #111111;
+$color-1: #1e1e1e;
+$color-1-light: #3c3c3c;
+
+:root {
+    --swiper-navigation-color: white;
+    --swiper-pagination-color: white;
+    --swiper-pagination-bullet-inactive-color: white;
+    --swiper-navigation-size: 60px;
+}
+
+html, body {
+    height: 100%;
+    width: 100%;
+    background-color: $color-1;
+}
+
+body {
+    margin: 0;
+    font-family: 'Montserrat', sans-serif;
+    color: white;
+    overflow: hidden;
+}
+
+p {
+    margin: 0;
+}

@@ -1,0 +1,106 @@
+$color-1-dark: #111111;
+$color-1: #1e1e1e;
+$color-1-light: #3c3c3c;
+
+.con2 {
+    width: 100%;
+    height: calc(100% + 40px);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.container {
+    height: 600px;
+    width: 500px;
+    background-color: $color-1-dark;
+    border-radius: 10px;
+    border: $color-1 2px solid;
+    box-shadow: black 0px 2px 5px;
+}
+
+#flashcard {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 20px;
+    box-shadow: black 0px 7.5px 20px;
+    z-index: 4;
+}
+
+.sub-container {
+    width: 460px;
+    height: 140px;
+    background-color: $color-1;
+    border-radius: 10px;
+}
+
+.sub-card {
+    position: absolute;
+}
+
+#first {
+    z-index: 1;
+    transform: rotate(7deg);
+}
+#second {
+    z-index: 2;
+    transform: rotate(3deg);
+}
+#third {
+    z-index: 3;
+    transform: rotate(-5deg);
+}
+
+.swiper {
+    width: 460px;
+    height: 400px;
+    margin-top: 20px;
+    border-radius: 10px;
+    display: flex;
+    gap: 20px;
+}
+
+img {
+    position: absolute;
+    width: 460px;
+    height: 400px;
+    object-fit: cover;
+    border-radius: 10px;
+}
+
+.slides {
+    opacity: 0;
+    transition: 500ms ease-in-out;
+}
+.slides.active {
+    opacity: 1;
+}
+
+.arrow-left {
+    transform: rotate(180deg);
+}
+
+.arrow-right, .arrow-left {
+    fill: white;
+    position: relative;
+    width: 33.34px;
+    height: 59.5px;
+    cursor: pointer;
+    transition: 500ms ease-in-out;
+}
+
+.arrow-con {
+    position: absolute;
+    width: 440px;
+    height: 400px;
+    margin-top: 20px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    flex-direction: row-reverse;
+}
+
+.arrow-right.black, .arrow-left.black {
+    fill: black;
+}

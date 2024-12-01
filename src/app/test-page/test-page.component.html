@@ -1,0 +1,23 @@
+<div class="con2">
+    <div id="flashcard" class="container">
+        @if (chosenPlant) {
+            <div class="swiper">
+                <img *ngFor="let img of chosenPlant.img; let i = index" [src]="img" class="slides"
+                 [ngStyle]="{'visibility': slideIndex === i + 1 ? 'visible' : 'hidden'}"
+                 [ngClass]="{'active': slideIndex === i + 1}"
+                 loading="lazy">
+            </div>
+            <div class="sub-container"></div>
+
+            <div class="arrow-con">
+                <svg xmlns="http://www.w3.org/2000/svg" [ngClass]="{'black': chosenPlant.colors[slideIndex-1]}" class="arrow-right" (click)="changePicture(1)" height="24px" viewBox="300 -849 350 800" width="12px"><path d="m351-110-41-41 299-299-299-299 41-41 340 340L351-110Z"/></svg>
+                <svg xmlns="http://www.w3.org/2000/svg" [ngClass]="{'black': chosenPlant.colors[slideIndex-1]}" class="arrow-left" (click)="changePicture(-1)" height="24px" viewBox="300 -849 350 800" width="12px"><path d="m351-110-41-41 299-299-299-299 41-41 340 340L351-110Z"/></svg>    
+            </div>
+        }
+    </div>
+    <div id="first" class="container sub-card"></div>
+    <div id="second" class="container sub-card"></div>
+    <div id="third" class="container sub-card"></div>
+</div>
+
+<button style="position: absolute; top: 25px;" (click)="changePlant()">CHANGE PLANT</button>
