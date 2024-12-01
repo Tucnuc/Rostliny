@@ -1,5 +1,6 @@
 import { Component, CUSTOM_ELEMENTS_SCHEMA, OnInit } from '@angular/core';
 import { NgStyle, NgClass, NgFor } from '@angular/common';
+import { trigger, state, style, animate, transition } from '@angular/animations';
 
 export interface Plant {
   name: string;
@@ -18,6 +19,13 @@ export interface Families {
   schemas: [CUSTOM_ELEMENTS_SCHEMA],
   templateUrl: './test-page.component.html',
   styleUrl: './test-page.component.scss',
+  animations: [
+    trigger('opacityAnimation', [
+      state('vis', style({ filter: 'blur(10px)'  })),
+      state('invis', style({ filter: 'blur(0)', cursor: 'default' })),
+      transition('vis => invis', [animate('250ms ease-out')])
+    ]),
+  ],
 })
 
 export class TestPageComponent implements OnInit {
@@ -69,6 +77,7 @@ export class TestPageComponent implements OnInit {
   }
 
   changePlant() {
+    this.isVisible = false;
     this.generatePlant();
   }
 
@@ -83,6 +92,12 @@ export class TestPageComponent implements OnInit {
       if (n > this.chosenPlant.img.length) { this.slideIndex = 1; }
       if (n < 1) { this.slideIndex = this.chosenPlant.img.length; }
     }
+  }
+
+  isVisible = false;
+
+  uncoverText() {
+    this.isVisible = true;
   }
 
   ngOnInit() {

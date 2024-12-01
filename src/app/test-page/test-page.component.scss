@@ -28,13 +28,6 @@ $color-1-light: #3c3c3c;
     z-index: 4;
 }
 
-.sub-container {
-    width: 460px;
-    height: 140px;
-    background-color: $color-1;
-    border-radius: 10px;
-}
-
 .sub-card {
     position: absolute;
 }
@@ -53,18 +46,19 @@ $color-1-light: #3c3c3c;
 }
 
 .swiper {
-    width: 460px;
-    height: 400px;
+    width: 456px;
+    height: 396px;
     margin-top: 20px;
     border-radius: 10px;
     display: flex;
     gap: 20px;
+    border: $color-1 2px solid;
 }
 
 img {
     position: absolute;
-    width: 460px;
-    height: 400px;
+    width: 456px;
+    height: 396px;
     object-fit: cover;
     border-radius: 10px;
 }
@@ -92,9 +86,9 @@ img {
 
 .arrow-con {
     position: absolute;
-    width: 440px;
-    height: 400px;
-    margin-top: 20px;
+    width: 436px;
+    height: 396px;
+    margin-top: 22px;
     display: flex;
     justify-content: space-between;
     align-items: center;
@@ -104,3 +98,41 @@ img {
 .arrow-right.black, .arrow-left.black {
     fill: black;
 }
+
+.sub-container {
+    width: 456px;
+    height: 136px;
+    background-color: $color-1-dark;
+    border-radius: 10px;
+    border: $color-1 2px solid;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.text {
+    width: 452px;
+    height: 132px;
+    border-radius: 10px;
+    text-align: center;
+    display: flex;
+    justify-content: center;
+    flex-direction: column;
+    gap: 10px;
+    filter: blur(10px);
+    cursor: pointer;
+    user-select: none;
+}
+
+.name {
+    font-weight: 650;
+    font-size: xx-large;
+}
+
+.family {
+    font-size: larger;
+}
+
+// p {
+//     cursor: default;
+// }
