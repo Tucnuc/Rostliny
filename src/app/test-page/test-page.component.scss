@@ -61,6 +61,7 @@ img {
     height: 396px;
     object-fit: cover;
     border-radius: 10px;
+    user-select: none;
 }
 
 .slides {
@@ -133,6 +134,83 @@ img {
     font-size: larger;
 }
 
-// p {
-//     cursor: default;
+// .yesbtn {
+//     position: absolute;
+//     top: 0;
+//     left: 100px;
 // }
+// .nobtn {
+//     position: absolute;
+//     top: 0;
+// }
+
+.animation-card {
+    position: absolute;
+    z-index: 1;
+    box-shadow: none !important;
+    transition: 500ms;
+    border: none !important;
+}
+
+$green: #007300;
+$red: #b20000;
+
+#animation-card-container.correct {
+    border: $green 2px solid;
+}
+
+#animation-card-container.incorrect {
+    border: $red 2px solid;
+}
+
+.circle-svg {
+    position: absolute;
+    z-index: 10;
+    margin-bottom: 100px;
+    opacity: 0;
+}
+
+.correct-circle {
+    fill: $green;
+    width: 257px;
+}
+
+.incorrect-circle {
+    fill: $red;
+    width: 250px;
+}
+
+#animation-card-container {
+    height: 600px;
+    width: 500px;
+    position: absolute;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    transition: 250ms ease-in-out;
+    z-index: 10;
+    border-radius: 10px;
+    border: $color-1 2px solid;
+}
+
+.con3 {
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-direction: row-reverse;
+    gap: 650px;
+}
+
+.btn-svg {
+    opacity: 1;
+    fill: $color-1-light;
+    width: 75px;
+    fill: white;
+}
+
+.incorrect-btn {
+    transform: rotate(180deg);
+}
