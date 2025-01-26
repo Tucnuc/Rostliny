@@ -1,6 +1,7 @@
-import { Component, CUSTOM_ELEMENTS_SCHEMA, OnInit } from '@angular/core';
+import { Component, CUSTOM_ELEMENTS_SCHEMA, OnInit, Output, EventEmitter } from '@angular/core';
 import { NgStyle, NgClass, NgFor } from '@angular/common';
 import { trigger, state, style, animate, transition } from '@angular/animations';
+import { SharedService } from '../shared/shared.service';
 
 export interface Plant {
   name: string;
@@ -53,25 +54,15 @@ export interface Families {
 })
 
 export class TestPageComponent implements OnInit {
-  families: Families = {
-    Mirikovite: [
-      { name: 'Mrkev Obecná', family: 'Miříkovité', img: ['/images/rostliny/mirikovite/mrkev-obecna/mrkev1.png','/images/rostliny/mirikovite/mrkev-obecna/mrkev2.png','/images/rostliny/mirikovite/mrkev-obecna/mrkev3.png'], colors: [false, false, true] },
-      { name: 'Miřík Celer', family: 'Miříkovité', img: ['/images/rostliny/mirikovite/mirik-celer/celer1.png','/images/rostliny/mirikovite/mirik-celer/celer2.png','/images/rostliny/mirikovite/mirik-celer/celer3.png'], colors: [false, false, false] },
-      { name: 'Petržel Obecná', family: 'Miříkovité', img: ['/images/rostliny/mirikovite/petrzel-obecna/petrzel1.png','/images/rostliny/mirikovite/petrzel-obecna/petrzel2.png','/images/rostliny/mirikovite/petrzel-obecna/petrzel3.png'], colors: [false, false, false] },
-    ],
-    Ruzovite: [
-      { name: 'Jabloň', family: 'Růžovité', img: ['/images/rostliny/ruzovite/jablon/jablon1.png','/images/rostliny/ruzovite/jablon/jablon2.png','/images/rostliny/ruzovite/jablon/jablon3.png'], colors: [false, false, true] },
-      { name: 'Hrušeň', family: 'Růžovité', img: ['/images/rostliny/ruzovite/hrusen/hrusen1.png','/images/rostliny/ruzovite/hrusen/hrusen2.png','/images/rostliny/ruzovite/hrusen/hrusen3.png','/images/rostliny/ruzovite/hrusen/hrusen4.png'], colors: [false, false, true, false] },
-      { name: 'Jeřáb', family: 'Růžovité', img: ['/images/rostliny/ruzovite/jerab/jerab1.png','/images/rostliny/ruzovite/jerab/jerab2.png','/images/rostliny/ruzovite/jerab/jerab3.png','/images/rostliny/ruzovite/jerab/jerab4.png'], colors: [true, false, false, false] },
-    ],
-    // Ruzovite: [],
-  };
+  constructor(private shared:SharedService) {}
+  
+  families!: Families;
 
   getRandomNumber(min: number, max: number): number {
     return Math.floor(Math.random() * (max - min + 1)) + min;
   }
 
-  chosenFamilies = ['Mirikovite','Ruzovite'];
+  chosenFamilies: string[] = [];
   filteredPlants: Plant[] = [];
 
   usedPlants: string[] = [];
@@ -194,6 +185,9 @@ export class TestPageComponent implements OnInit {
 
 
   ngOnInit() {
+    this.families = this.shared.getFamilies();
+    this.chosenFamilies = this.shared.getChosenFamilies();
+
     const familiesKeys = Object.keys(this.families);
     for (let i = 0; i < familiesKeys.length; i++) {
       if (this.chosenFamilies.includes(familiesKeys[i])) {
@@ -205,5 +199,4 @@ export class TestPageComponent implements OnInit {
     this.generatePlant();
     this.showSlide(this.slideIndex);
   }
-
 }

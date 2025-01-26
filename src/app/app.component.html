@@ -1,3 +1,4 @@
 <app-navbar></app-navbar>
-<app-test-page></app-test-page>
+@if (!doingFlashcards) { <app-home-page></app-home-page> }
+@if (doingFlashcards) { <app-test-page></app-test-page> }
 <app-footer></app-footer>
