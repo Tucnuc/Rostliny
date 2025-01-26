@@ -1,7 +1,7 @@
 export default `<!DOCTYPE html><html lang="en" data-beasties-container><head>
   <meta charset="utf-8">
   <title>Biology</title>
-  <base href="/rostliny">
+  <base href="/rostliny/">
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <link rel="icon" type="image/x-icon" href="./svgs/icon.svg">
   <link rel="preconnect" href="https://fonts.googleapis.com">
